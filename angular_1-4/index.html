@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html ng-app="currencyExample">
+<head>
+  <title>Simple app</title>
+  <script
+    src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.js">
+    </script>
+    <style media="screen">
+      .red{
+        color: red;
+      }
+      .green{
+        color: green;
+      }
+    </style>
+</head>
+<body>
+  <!-- <input ng-model="name" type="text" placeholder="Your name">
+  <h1>Hello {{ name }}</h1> -->
+  <div ng-controller="ExampleController">
+    <h1>Case modifier</h1>
+    <input type="text" ng-model="user_input" aria-label="amount"> <br>
+    <span id="currency-default">{{user_input | lowercase}}</span><br>
+    <span id="currency-custom">{{user_input | uppercase}}</span>
+    <br>
+    <h1>Digits of PI</h1>
+    <span>How many digits of pi do you want?
+      <select ng-model="digits">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select>
+    </span>
+    <br>
+    <span>Here you go! The first {{ digits }} <ng-pluralize count="digits" when="{'one': 'digit', 'other':'digits'}"></ng-pluralize>of PI</span>
+    <br>
+    <span>{{ 3.14159265359 | number: digits }}</span>
+    <h1>Tip Calculator</h1>
+    <input ng-model="bill" type="number">
+    <select ng-model="tip_amount" name="">
+      <option value=".10">10%</option>
+      <option value=".15">15%</option>
+      <option value=".20">20%</option>
+    </select>
+    <br>
+    <span>Tip Amount: {{ bill * tip_amount | currency}}</span>
+    <br>
+    <br>
+    <span>This is not the window: {{ this }}</span>
+    <br>
+    <br>
+  </div>
+  <div ng-controller = "madLibController">
+    <h2>Please fill out the following!</h2> <br>
+    <span>Boy's Name</span>
+    <input type="text" ng-model="name" value=""><br>
+    <span>Adjective</span>
+    <input type="text" ng-model="adjective" value=""><br>
+    <span>Plural Noun</span>
+    <input type="text" ng-model="pluralNoun1" value=""><br>
+    <span>An insect, plural</span>
+    <input type="text" ng-model="insect" value=""><br>
+    <span>Plural Noun</span>
+    <input type="text" ng-model="pluralNoun2" value=""><br>
+    <span>A verb ending in "s"</span>
+    <input type="text" ng-model="verb" value=""><br>
+    <input type="button" name="name" value="Show" ng-click="show=true">
+    <input type="button" name="name" value="Hide" ng-click="show=false" ng-mouseup="clearAll()">
+    <h3 ng-show="show">I'm in love with <span>{{ noun }}</span>. He's so <span>{{ adjective }}</span>! He has big flat <span>{{ pluralNoun1 }}</span>, and when our <span>{{ insect }}</span> meet, I get <span>{{ pluralNoun2 }}</span> in my stomach. I've fallen for him like a ton of <span>{{ verb }}</span>, and he shuffles for me, too. But I think he's got another girlfriend. What should I do?</h3>
+  </div>
+  <div ng-controller = "symbolsController">
+    <ul ng-repeat="symbol in symbols">
+      <li>{{symbol}}</li>
+    </ul>
+    <h3>Duplicates</h3>
+    <ul ng-repeat="duplicate in duplicates track by $index" ng-show="duplicate%2 == 0">
+      <li>{{duplicate}}</li>
+    </ul>
+    <div ng-show="true">
+      3 + 4 isn't 5, don't show
+    </div>
+
+    <div ng-show="'Patrick' == 'Patrick'">
+      3 + 4 is 7, do show
+    </div>
+
+    <div ng-hide="3 + 4 == 5">
+        3 + 4 isn't 5, don't hide
+    </div>
+
+    <div ng-hide="3 + 4 == 7">
+      3 + 4 is 7, do hide
+    </div>
+    <br>
+    <br>
+    <input type="password" ng-model = "password" name="name" value="">
+    <br>
+    <span>Your password is {{ password.length }} characters</span>
+    <br>
+    <span class="red" ng-hide="password.length > 6" ng-class="{red: password.length < 6}">Your password is too short</span>
+    <input type="button" name="name" value="Login" ng-show="password.length > 6">
+  </div>
+  <script src="main.js" charset="utf-8"></script>
+</body>
+</html>
