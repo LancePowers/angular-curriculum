@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="cameraDisplay">
+<head>
+  <title>Camera Display</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <style>
+    .sale{
+      color: red;
+    }
+    .fa{
+      color: yellow;
+      min-height: 10px;
+      min-width: 10px;
+    }
+  </style>
+  <script
+    src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.js">
+  </script>
+</head>
+<body>
+  <h1>Crazy Karl's Discount Camuras</h1>
+  <h3>Yer gunna shutter at how low these prices go!</h3>
+  <div ng-controller="CameraController">
+    <label>Order By:</label>
+    <select ng-model="cameraOrder">
+      <option value="title">name</option>
+      <option value="price">price</option>
+    </select>
+    <div ng-repeat="camera in cameras | orderBy: cameraOrder">
+      <h3>{{camera.title}}</h3>
+      <img ng-src="http://ecx.images-amazon.com/images/I/{{camera.image}}._SX522_.jpg"/>
+      <p>{{camera.rating}}</p>
+      <i class="fa fa-star"></i><p class="" ng-class="{sale: camera.onSale}">{{camera.price | currency: USD$}}</p>
+    </div>
+  </div>
+
+  <script src="main.js" charset="utf-8"></script>
+</body>
+</html>
