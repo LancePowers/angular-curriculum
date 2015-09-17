@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="section7App">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular Section 7</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.js"></script>
+</head>
+
+<body>
+    <div ng-controller="RandomNumber">
+        <h1>Random Number</h1>
+        <h3 class="text-center">The number is: 5 </h3>
+        <button class="center-block btn btn-success" ng-click="pickRandomNumber()">Get a random number</button>
+    </div>
+    <div ng-controller="WordReverser">
+        <h1>Word Reverser</h1>
+        <input type="text" ng-model="word" placeholder="enter a word"> <br>
+        <span>Your word is: {{ word }} </span> <br>
+        <button class="center-block btn btn-success" ng-click="reverseWord()">Reverse!</button>
+    </div>
+    <div ng-controller="PingPongScore" >
+        <h1>Ping Pong Score Keeper</h1>
+        <div class="row">
+            <div class="col-xs-1"></div>
+          <div class="col-xs-5 col-md-3 well well-lg">
+            <div class="text-center score-board" ng-class="{'bg-info': playing,'bg-success': p1score > 11, 'bg-danger': p2Score > 11}">
+                <p class="score" ng-click="point(p1)">{{p1.score}}</p>
+            </div>
+            <p class="text-center" ng-show="p1.serve">Serve</p>
+          </div>
+          <div class="col-xs-5 col-md-3 well well-lg">
+            <div class="text-center score-board" ng-class="{'bg-info': playing,'bg-success': p2score > 11, 'bg-danger': p1Score > 11}">
+                <p class="score" ng-click="point(p2)" >{{p2.score}}</p>
+            </div>
+                <p class="text-center" ng-show="p2.serve">Serve</p>
+          </div>
+          
+</div>
+    </div>
+    <div ng-controller="ContactList">
+        <h1>Contact List</h1>
+
+    </div>
+    <script src="main.js"></script>
+
+
+</body>
+</html>

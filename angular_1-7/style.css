@@ -1,0 +1,7 @@
+.score-board{
+    min-height: 200px;
+}
+.score{
+    line-height: 200px;
+    font-size: 2em;
+}

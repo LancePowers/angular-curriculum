@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
-<html lang="">
+<html ng-app="firstApp">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,12 @@
 <body>
     <div ng-controller="MyFirstController">
       <h1>My name is: {{name}}</h1>
-      <input ng-model="name" type="text" placeholder="What is your name">
+      <input ng-model="name" type="text" placeholder="What is your name?">
+    </div>
+    <div ng-controller="ExercisesController">
+      <h2>My favorite color is: {{FavColor}} </h2>
+      <h3> {{ secondsInACentury | number:2 }} </h3>
+        <h3> {{ rightNow | date:'fullDate' }} </h3>
     </div>
   <script src="main.js"></script>
 </body>
