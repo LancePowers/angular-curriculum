@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="myApp" ng-controller="MyController">
+<html ng-app="myApp">
 
 <head>
     <meta charset="utf-8">
@@ -12,7 +12,31 @@
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            
+            <ul class="nav navbar-nav" ng-controller="NavController">
+                <li ng-class="{active: isActive('Home')}" ng-click="navActive = 'Home'">
+                    <a ng-href="#/"> Home </a>
+                </li>
+                <li ng-class="{active: isActive('Projects')}">
+                    <a ng-href="#/projects" ng-click="navActive = 'Projects'">
+                        Projects
+                    </a>
+                </li>
+                <li ng-class="{active: isActive('Resume')}">
+                    <a ng-href="#/resume" ng-click="navActive = 'Resume'">
+                        Resume
+                    </a>
+                </li>
+                <li ng-class="{active: isActive('Bio')}">
+                    <a ng-href="#/bio" ng-click="navActive = 'Bio'">
+                        Bio
+                    </a>
+                </li>
+                <li ng-class="{active: isActive('Calculator')}">
+                    <a ng-href="#/calculator" ng-click="navActive = 'Calculator'">
+                        Calculator
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
@@ -20,14 +44,14 @@
 
 <body>
 
-   <div ng-view></div>
+    <div class="container" ng-view></div>
     <!-- load momentJS (required for angular-moment) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
     <!-- load angular-moment -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/0.9.0/angular-moment.min.js"></script>
     <!-- load angular-routes -->
-     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.js"></script>
-     <script src="./js/app.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.js"></script>
+    <script src="./js/app.js" type="text/javascript"></script>
     <script src="./js/controllers.js" type="text/javascript"></script>
     <script src="./js/directives.js" type="text/javascript"></script>
     <script src="./js/filters.js" type="text/javascript"></script>
